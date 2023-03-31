@@ -98,7 +98,6 @@ You are now eligible for a year of Premium account on [MermaidChart](https://www
     const name = request.headers.get("x-github-event");
     const signature = request.headers.get("x-hub-signature-256") ?? "";
     const payloadString = await request.text();
-    const payload = JSON.parse(payloadString);
 
     // Verify webhook signature
     try {
@@ -113,6 +112,7 @@ You are now eligible for a year of Premium account on [MermaidChart](https://www
       });
     }
 
+    const payload = JSON.parse(payloadString);
     // Now handle the request
     try {
       if (!id || !name || !payload) {
