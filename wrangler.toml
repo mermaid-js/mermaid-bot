@@ -1,0 +1,7 @@
+name = "mermaid-bot"
+main = "src/index.ts"
+compatibility_date = "2023-03-31"
+node_compat = true
+kv_namespaces = [
+	{ binding = "USERS", id = "3305cd20061c40e59e5085db214419da" }
+]
