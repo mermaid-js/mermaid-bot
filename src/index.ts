@@ -67,6 +67,9 @@ export default {
       if (exists || !merged) {
         return;
       }
+      if (payload.repository.owner.login === "mermaid-js") {
+        return;
+      }
       await octokit.request(
         "POST /repos/{owner}/{repo}/issues/{issue_number}/comments",
         {
