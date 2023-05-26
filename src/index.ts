@@ -50,8 +50,6 @@ export default {
     //
     const privateKey = env.PRIVATE_KEY;
 
-    // instantiate app
-    // https://github.com/octokit/app.js/#readme
     const app = new App({
       appId,
       privateKey,
@@ -65,9 +63,6 @@ export default {
       const merged = payload.pull_request.merged;
       const exists = await env.USERS.get(username);
       if (exists || !merged) {
-        return;
-      }
-      if (payload.repository.owner.login === "mermaid-js") {
         return;
       }
       await octokit.request(

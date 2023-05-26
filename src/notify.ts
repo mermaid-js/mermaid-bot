@@ -17,19 +17,11 @@ const data: Record<string, { prs: number[] }> = JSON.parse(
   readFileSync("eligibleUsers.json", "utf8")
 );
 
-// console.log("User | PRs\n--- | ---");
-
-// for (let [user, { prs }] of Object.entries(data)) {
-//   console.log(`${user} | ${prs.length}`);
-// }
-
 const notify = async (user: string) => {
   const { prs } = data[user];
-  // const pr = 152;
   const pr = prs[0];
   const res = await octokit.issues.createComment({
     owner: "mermaid-js",
-    // owner: "sidharthv96",
     repo: "mermaid",
     issue_number: pr,
     body: `@${user}, Thank you for the contribution!

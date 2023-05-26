@@ -37,12 +37,6 @@ const main = async () => {
       return response.data;
     }
   );
-  // const pulls = await octokit.pulls.list({
-  //   owner: "mermaid-js",
-  //   repo: "mermaid",
-  //   state: "closed",
-  // });
-  // console.log(pulls);
   const users = new Set<string>();
   const data: Record<string, { prs: number[] }> = {};
   for (const pull of pulls) {
